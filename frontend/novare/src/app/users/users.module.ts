@@ -4,6 +4,7 @@ import { NewUserComponent } from './new-user/new-user.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { DropdownModule } from 'primeng/dropdown';
+import { ButtonModule } from 'primeng/button';
 
 
 
@@ -15,7 +16,8 @@ import { DropdownModule } from 'primeng/dropdown';
     CommonModule,
     InputTextModule,
     PasswordModule,
-    DropdownModule
+    DropdownModule,
+    ButtonModule
   ]
 })
 export class UsersModule { }
