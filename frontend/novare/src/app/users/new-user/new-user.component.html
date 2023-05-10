@@ -1,0 +1,22 @@
+<h2 class="mt-4 mb-4">Novo Usuário</h2>
+<form>
+    <div class="mb-3">
+        <label htmlFor="username">Nome</label>
+        <input class="form-control" pInputText id="username" aria-describedby="username-help"/>
+        <small class="form-text" id="username-help">Digite seu nome completo</small>
+    </div>
+    <div class="mb-3">
+        <label htmlFor="username">E-mail</label>
+        <input class="form-control" pInputText id="username" aria-describedby="username-help"/>
+        <small class="form-text" id="username-help">Digite seu e-mail: exemplo@gmail.com</small>
+    </div>
+    <div class="mb-3">
+        <label htmlFor="profile">Perfil</label><br>
+        <p-dropdown id="profile" [options]="profiles" optionLabel="name"></p-dropdown><br>
+        <small class="form-text" id="username-help">Selecione o perfil desejado</small>
+    </div>
+    <div class="mb-3">
+        <label htmlFor="password">Senha</label><br>
+        <p-password [toggleMask]="true" promptLabel="Digite a senha"></p-password>
+    </div>    
+  </form>
