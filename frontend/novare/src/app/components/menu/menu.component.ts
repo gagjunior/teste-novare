@@ -10,6 +10,11 @@ export class MenuComponent implements OnInit {
 
   items: MenuItem[] = [
     {
+        label: 'Home',
+        icon: 'pi pi-fw pi-home',
+        routerLink: '/'
+    },
+    {
         label: 'Usuários',
         icon: 'pi pi-fw pi-users',
         items: [
