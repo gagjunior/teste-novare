@@ -20,7 +20,8 @@ export class MenuComponent implements OnInit {
             },
             {
                 label: 'Listar',
-                icon: 'pi pi-fw pi-list'
+                icon: 'pi pi-fw pi-list',
+                routerLink: 'users/list'
             }
         ]
     },
