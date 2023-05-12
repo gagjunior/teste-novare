@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
-import { ProfileModel } from '../model/profile.model';
 
+interface Profile {
+  code: number,
+  name: string
+}
 
 @Component({
   selector: 'app-new-user',
@@ -9,14 +11,13 @@ import { ProfileModel } from '../model/profile.model';
   styleUrls: ['./new-user.component.css']
 })
 export class NewUserComponent implements OnInit {
-  profiles: ProfileModel[] = [];
-
-  constructor(private service: UserService){}
+  profiles: Profile[] = [];
 
   ngOnInit(): void {
-    this.service.getAllProfile().subscribe(response => {
-      this.profiles = response;
-    })   
+    this.profiles = [
+      {code: 1, name: 'Administrador'},
+      {code: 2, name:'Financeiro'}      
+    ]    
   }
 
   

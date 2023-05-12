@@ -29,7 +29,7 @@ public class UserController {
     @GetMapping
     public ResponseEntity<List<User>> findAllUsers(
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "4") int size) {
+            @RequestParam(defaultValue = "3") int size) {
         Pageable paging = PageRequest.of(page, size);
         return ResponseEntity.ok().body(userService.findAllUsers(paging));
     }
