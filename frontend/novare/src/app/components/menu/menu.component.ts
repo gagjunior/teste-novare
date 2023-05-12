@@ -16,8 +16,7 @@ export class MenuComponent implements OnInit {
             {
                 label: 'Novo',
                 icon: 'pi pi-fw pi-user-plus',
-                routerLink: '/users',
-
+                routerLink: 'users/create'
             },
             {
                 label: 'Listar',
