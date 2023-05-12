@@ -4,20 +4,24 @@ import br.com.gagjunior.novare.models.Profile;
 import br.com.gagjunior.novare.services.ProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
+@CrossOrigin //para controlar os dominios que tem acesso é só informar no parametro da anotação
 @RestController
 @RequestMapping(value = "profiles")
 public class ProfileController {
 
     @Autowired
     private ProfileService profileService;
+
+    @GetMapping
+    public ResponseEntity<List<Profile>> findAllProfiles(){
+        return ResponseEntity.ok(profileService.findAllProfiles());
+    }
 
     @PostMapping
     public ResponseEntity<Profile> saveNewProfile(@RequestBody Profile profile) {
