@@ -8,6 +8,7 @@ import { TableModule } from 'primeng/table';
 import { NewUserComponent } from './new-user/new-user.component';
 import { UserService } from './user.service';
 import { UserListComponent } from './user-list/user-list.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -22,7 +23,8 @@ import { UserListComponent } from './user-list/user-list.component';
     PasswordModule,
     DropdownModule,
     ButtonModule,
-    TableModule,  
+    TableModule,
+    ReactiveFormsModule  
   ],
   providers: [
     UserService

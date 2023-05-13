@@ -1,9 +1,9 @@
 <h2 class="mb-4">Novo Usuário</h2>
-<form>
+<form [formGroup]="formGroup">
     <div class="mb-3">
         <label htmlFor="username">Nome</label>
-        <input class="form-control form-field" pInputText id="username" aria-describedby="username-help"/>
-        <small class="form-text" id="username-help">Digite seu nome completo</small>
+        <input class="form-control form-field" pInputText id="name" formControlName="name" aria-describedby="name-help"/>
+        <small class="form-text" id="name-help">Digite seu nome completo</small>
     </div>
     <div class="mb-3">
         <label htmlFor="email">E-mail</label>
@@ -20,6 +20,6 @@
         <p-password [toggleMask]="true" promptLabel="Digite a senha"></p-password>
     </div>
     <div class="mb-3">
-        <p-button label="Cadastrar" icon="pi pi-save"></p-button>
+        <p-button label="Cadastrar" icon="pi pi-save" (click)="testPrint()"></p-button>
     </div>   
   </form>
