@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
 import { ProfileModel } from '../model/profile.model';
+import { UserService } from '../user.service';
+import { FormControl, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -11,12 +12,30 @@ import { ProfileModel } from '../model/profile.model';
 export class NewUserComponent implements OnInit {
   profiles: ProfileModel[] = [];
 
+ formGroup = new FormGroup({
+  name: new FormControl(''),
+}) 
+  
+
   constructor(private service: UserService){}
 
-  ngOnInit(): void {
-    this.service.getAllProfile().subscribe(response => {
-      this.profiles = response;
-    })   
+  ngOnInit() {
+    this.getAllProfiles()
+   
+             
+  }
+  
+  
+
+  getAllProfiles(){
+    this.service.getAllProfiles().subscribe(obj => {
+      this.profiles = obj
+      console.log(this.profiles)
+    }) 
+  }
+
+   public testPrint(){
+    console.log(this.formGroup.controls.name.value)
   }
 
   

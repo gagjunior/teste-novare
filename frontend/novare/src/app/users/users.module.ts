@@ -1,36 +1,30 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NewUserComponent } from './new-user/new-user.component';
+import { NgModule } from '@angular/core';
+import { ButtonModule } from 'primeng/button';
+import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
-import { DropdownModule } from 'primeng/dropdown';
-import { ButtonModule } from 'primeng/button';
-import { RouterModule, Routes } from '@angular/router';
+import { TableModule } from 'primeng/table';
+import { NewUserComponent } from './new-user/new-user.component';
 import { UserService } from './user.service';
+import { UserListComponent } from './user-list/user-list.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
-const usersRoutes: Routes = [
-  {
-    path: '',
-    component: NewUserComponent
-  }
-]
 
 
 @NgModule({
   declarations: [
-    NewUserComponent
+    NewUserComponent,
+    UserListComponent
   ],
   imports: [
     CommonModule,
-    RouterModule,
-    RouterModule.forChild(usersRoutes),
     InputTextModule,
     PasswordModule,
     DropdownModule,
-    ButtonModule
-  ],
-  exports: [
-    RouterModule
+    ButtonModule,
+    TableModule,
+    ReactiveFormsModule  
   ],
   providers: [
     UserService
