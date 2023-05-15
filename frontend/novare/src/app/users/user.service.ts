@@ -16,8 +16,8 @@ export class UserService {
     return this.http.get<UserModel[]>('http://localhost:8080/users');
   }
 
-  public saveNewUser(user: UserDto): Observable<UserModel>{
-    return this.http.post<UserModel>('localhost', user);
+  public saveNewUser(user: UserDto): Observable<UserDto>{
+    return this.http.post<UserDto>('http://localhost:8080/users', user);
   }
 
   public getAllProfiles(): Observable<ProfileModel[]>{

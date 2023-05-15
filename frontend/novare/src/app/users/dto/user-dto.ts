@@ -1,6 +1,6 @@
 export interface UserDto {
-    name: string,
-    email: string,
-    profileId: number,
-    password: string,
+    name: string | null,
+    email: string | null,
+    profileId: number | null,
+    password: string | null,
 }

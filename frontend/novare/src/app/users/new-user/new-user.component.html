@@ -1,25 +1,30 @@
-<h2 class="mb-4">Novo Usuário</h2>
-<form [formGroup]="formGroup">
-    <div class="mb-3">
-        <label htmlFor="username">Nome</label>
-        <input class="form-control form-field" pInputText id="name" formControlName="name" aria-describedby="name-help"/>
-        <small class="form-text" id="name-help">Digite seu nome completo</small>
-    </div>
-    <div class="mb-3">
-        <label htmlFor="email">E-mail</label>
-        <input class="form-control form-field" pInputText id="email" aria-describedby="email-help" placeholder="exemplo@gmail.com"/>
-        <small class="form-text" id="email-help">Digite seu e-mail</small>
-    </div>
-    <div class="mb-3">
-        <label htmlFor="profile">Perfil</label><br>
-        <p-dropdown id="profile" [options]="profiles" optionLabel="name" aria-describedby="profile-help"></p-dropdown><br>
-        <small class="form-text" id="profile-help">Selecione o perfil desejado</small>
-    </div>
-    <div class="mb-3">
-        <label htmlFor="password">Senha</label><br>
-        <p-password [toggleMask]="true" promptLabel="Digite a senha"></p-password>
-    </div>
-    <div class="mb-3">
-        <p-button label="Cadastrar" icon="pi pi-save" (click)="testPrint()"></p-button>
-    </div>   
-  </form>
+<div class="container-fluid">
+    <h2 class="mb-4">Novo Usuário</h2>
+    <form [formGroup]="formGroup">
+        <div class="mb-3">
+            <label htmlFor="username">Nome</label>
+            <input class="form-control form-field" pInputText id="name" formControlName="name"
+                aria-describedby="name-help" />
+            <small class="form-text" id="name-help">Digite seu nome completo</small>
+        </div>
+        <div class="mb-3">
+            <label htmlFor="email">E-mail</label>
+            <input class="form-control form-field" pInputText id="email" formControlName="email"
+                aria-describedby="email-help" placeholder="exemplo@gmail.com" />
+            <small class="form-text" id="email-help">Digite seu e-mail</small>
+        </div>
+        <div class="mb-3">
+            <label htmlFor="profile">Perfil</label><br>
+            <p-dropdown id="profile" [options]="profiles" optionLabel="name" formControlName="profile"
+                aria-describedby="profile-help"></p-dropdown><br>
+            <small class="form-text" id="profile-help">Selecione o perfil desejado</small>
+        </div>
+        <div class="mb-3">
+            <label htmlFor="password">Senha</label><br>
+            <p-password [toggleMask]="true" promptLabel="Digite a senha" formControlName="password"></p-password>
+        </div>
+        <div class="mb-3">
+            <p-button label="Cadastrar" icon="pi pi-save" (click)="saveNewUser()"></p-button>
+        </div>
+    </form>
+</div>
