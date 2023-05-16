@@ -7,6 +7,8 @@
                 <th>Nome</th>
                 <th>E-mail</th>
                 <th>Perfil</th>
+                <th>Editar</th>
+                <th>Apagar</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-users>
@@ -14,6 +16,8 @@
                 <td>{{ users.name }}</td>
                 <td>{{ users.email }}</td>
                 <td>{{ users.profile['name'] }}</td>
+                <td><i class="bi bi-pen" style="color: blue;"></i></td>
+                <td><i class="bi bi-trash3" style="color: red;"></i></td>
             </tr>
         </ng-template>
     </p-table>
