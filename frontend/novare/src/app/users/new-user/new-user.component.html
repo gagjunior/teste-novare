@@ -1,10 +1,11 @@
 <div class="container-fluid">
+    <p-toast></p-toast>
     <h2 class="mb-4">Novo Usuário</h2>
     <form [formGroup]="formGroup">
         <div class="mb-3">
             <label htmlFor="username">Nome</label>
             <input class="form-control form-field" pInputText id="name" formControlName="name"
-                aria-describedby="name-help" />
+                aria-describedby="name-help" [required]="true"/>
             <small class="form-text" id="name-help">Digite seu nome completo</small>
         </div>
         <div class="mb-3">
@@ -21,7 +22,7 @@
         </div>
         <div class="mb-3">
             <label htmlFor="password">Senha</label><br>
-            <p-password [toggleMask]="true" promptLabel="Digite a senha" formControlName="password"></p-password>
+            <p-password [toggleMask]="true" promptLabel="Digite a senha" formControlName="password" inputId="password"></p-password>
         </div>
         <div class="mb-3">
             <p-button label="Cadastrar" icon="pi pi-save" (click)="saveNewUser()"></p-button>
