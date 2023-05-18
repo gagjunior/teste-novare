@@ -1,5 +1,5 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { UserDto } from '../dto/user-dto';
@@ -17,14 +17,12 @@ export class NewUserComponent implements OnInit {
   profiles: ProfileModel[] = [];
 
   formGroup = new FormGroup({
-    name: new FormControl<string>(''),
-    email: new FormControl<string>(''),
+    name: new FormControl<string>('', [Validators.required]),
+    email: new FormControl<string>('', [Validators.email, Validators.required]),
     profile: new FormControl,
-    password: new FormControl<string>('')
+    password: new FormControl<string>('', [Validators.required]),
+    confirm_pass: new FormControl<string>('', [Validators.required])
   })
-
-
-
 
   constructor(
     private service: UserService,
@@ -33,10 +31,14 @@ export class NewUserComponent implements OnInit {
     private renderer: Renderer2
   ) { }
 
+  get name() {return this.formGroup.get('name')}  
+  get email() {return this.formGroup.get('email')}
+  get profile(){return this.formGroup.get('profile')}
+  get password(){return this.formGroup.get('password')}
+  get confirm_pass(){return this.formGroup.get('confirm_pass')}
+
   ngOnInit() {
     this.getAllProfiles()
-
-
   }
 
   getAllProfiles() {
@@ -84,13 +86,22 @@ export class NewUserComponent implements OnInit {
       return false
     }
 
+    if (this.password?.value !== this.confirm_pass?.value){
+      console.log(this.password?.value)
+      console.log(this.confirm_pass?.value)
+      this.messageService.add({ severity: 'error', summary: 'Erro Senha', detail: 'As senhas não conferem!' })
+      this.renderer.selectRootElement('#password').focus()
+      return false
+    }
+
     return true
   }
 
   private clearFields(): void {
-    this.formGroup.controls.name.setValue('')
-    this.formGroup.controls.email.setValue('')
-    this.formGroup.controls.password.setValue('')
+    this.name?.setValue('')
+    this.email?.setValue('')
+    this.password?.setValue('')
+    this.confirm_pass?.setValue('')
   }
 
 }
