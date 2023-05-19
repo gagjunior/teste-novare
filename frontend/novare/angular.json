@@ -4,6 +4,10 @@
   "newProjectRoot": "projects",
   "projects": {
     "novare": {
+      "i18n": {
+        "sourceLocale": "pt-BR",
+        "locales": {"en-US": "src/locale/messages.en.xlf"}
+      },
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,6 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "localize": ["en-US"],
             "outputPath": "dist/novare",
             "index": "src/index.html",
             "main": "src/main.ts",
