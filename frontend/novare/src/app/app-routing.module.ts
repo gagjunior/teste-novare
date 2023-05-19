@@ -4,6 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ComponentsModule } from './components/components.module';
 import { NewUserComponent } from './users/new-user/new-user.component';
 import { UserListComponent } from './users/user-list/user-list.component';
+import { UserDetailComponent } from './users/user-detail/user-detail.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,11 @@ const routes: Routes = [
   {
     path: "users/list",
     component: UserListComponent
+  },
+  {
+    path: "users/detail/:id",
+    component: UserDetailComponent
+
   }
 ];
 
