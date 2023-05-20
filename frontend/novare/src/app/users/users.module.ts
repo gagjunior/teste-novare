@@ -12,13 +12,15 @@ import { ToastModule } from 'primeng/toast';
 import { NewUserComponent } from './new-user/new-user.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserService } from './user.service';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 
 
 @NgModule({
   declarations: [
     NewUserComponent,
-    UserListComponent
+    UserListComponent,
+    UserDetailComponent
   ],
   imports: [
     CommonModule,

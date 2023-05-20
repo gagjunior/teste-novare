@@ -1,12 +1,14 @@
 <h2 class="mb-4">Lista de Usuários</h2>
 
 <div class="card">
-    <p-table [value]="users" [tableStyle]="{ 'min-width': '50rem' }" selectionMode="single" [(selection)]="selectedUser" dataKey="id">
+    <p-toast></p-toast>
+    <p-table class="table table-hover" [value]="users" [tableStyle]="{ 'min-width': '50rem' }" selectionMode="single" [(selection)]="selectedUser" dataKey="id">
         <ng-template pTemplate="header">
             <tr>
                 <th>Nome</th>
                 <th>E-mail</th>
                 <th>Perfil</th>
+                <th>Detalhes</th>
                 <th>Editar</th>
                 <th>Apagar</th>
             </tr>
@@ -16,7 +18,8 @@
                 <td>{{ users.name }}</td>
                 <td>{{ users.email }}</td>
                 <td>{{ users.profile['name'] }}</td>
-                <td><i class="bi bi-pen" style="color: blue;"></i></td>
+                <td><i class="bi bi-info-circle"></i></td>
+                <td><a routerLink="users/detail/"><i class="bi bi-pen" style="color: blue;"></i></a></td>
                 <td><i class="bi bi-trash3" style="color: red;"></i></td>
             </tr>
         </ng-template>
