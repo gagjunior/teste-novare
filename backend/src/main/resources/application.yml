@@ -1,8 +1,11 @@
 spring:
+  application:
+    name: novare-service
   datasource:
     url: ${DATASOURCE_URL}
     username: ${DATASOURCE_USERNAME}
     password: ${DATASOURCE_PASSWORD}
+
 
   jpa:    
     hibernate:
@@ -12,6 +15,11 @@ spring:
     # properties:
     #   hibernate:
     #     format_sql: true
+
+novare-service:
+  page: 0
+  size: 4
+
 
 
   

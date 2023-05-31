@@ -1,5 +1,6 @@
 package br.com.gagjunior.novare.controllers;
 
+import br.com.gagjunior.novare.configuration.NovareConfiguration;
 import br.com.gagjunior.novare.models.User;
 import br.com.gagjunior.novare.models.dao.UserDao;
 import br.com.gagjunior.novare.services.UserService;
@@ -18,8 +19,11 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "users")
 public class UserController {
+
     @Autowired
     private UserService userService;
+    @Autowired
+    private NovareConfiguration configuration;
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<User> findById(@PathVariable Integer id) {
@@ -28,8 +32,13 @@ public class UserController {
 
     @GetMapping
     public ResponseEntity<List<User>> findAllUsers(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "3") int size) {
+            @RequestParam(defaultValue = "0") Integer page,
+            @RequestParam(required = false) Integer size) {
+
+        if (size == null) {
+            size = configuration.getSize();
+        }
+
         Pageable paging = PageRequest.of(page, size);
         return ResponseEntity.ok().body(userService.findAllUsers(paging));
     }
