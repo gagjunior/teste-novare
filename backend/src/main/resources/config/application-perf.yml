@@ -5,6 +5,7 @@ spring:
     url: ${DATASOURCE_URL}
     username: ${DATASOURCE_USERNAME}
     password: ${DATASOURCE_PASSWORD}
+
   jpa:    
     hibernate:
       ddl-auto: update
@@ -13,9 +14,6 @@ spring:
     # properties:
     #   hibernate:
     #     format_sql: true
-  profiles:
-    active:
-    - native
 
 management:
   endpoints:
@@ -24,12 +22,10 @@ management:
         include:
           - '*'
 
-server:
-  port: 8888
 
 novare-service:
   page: 0
-  size: 4
+  size: 2
 
 
 
