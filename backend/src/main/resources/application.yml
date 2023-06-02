@@ -1,6 +1,12 @@
-spring:
+server:
+  port: 8080
+
+spring: 
   application:
     name: novare-service
+  config:
+    import:
+    - optional:configserver:http://localhost:8888/
   datasource:
     url: ${DATASOURCE_URL}
     username: ${DATASOURCE_USERNAME}
@@ -13,19 +19,14 @@ spring:
     # properties:
     #   hibernate:
     #     format_sql: true
-  profiles:
-    active:
-    - native
-
+    
+    
 management:
   endpoints:
     web:
       exposure:
         include:
           - '*'
-
-server:
-  port: 8888
 
 novare-service:
   page: 0
