@@ -9,7 +9,7 @@ spring:
           uri: https://github.com/gagjunior/java-config-server
           default-label: main
           search-paths:
-          - 'novare-service*'
+          - 'config-service*'
           #username: 
           #password:
 
