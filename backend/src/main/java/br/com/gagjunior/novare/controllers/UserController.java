@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import br.com.gagjunior.novare.configuration.NovareConfiguration;
 import br.com.gagjunior.novare.models.User;
 import br.com.gagjunior.novare.models.dao.UserDao;
 import br.com.gagjunior.novare.services.UserService;
@@ -30,6 +31,8 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private NovareConfiguration configuration;
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<User> findById(@PathVariable Integer id) {
@@ -39,7 +42,11 @@ public class UserController {
     @GetMapping
     public ResponseEntity<List<User>> findAllUsers(
             @RequestParam(defaultValue = "0") Integer page,
-            @RequestParam(defaultValue = "3") Integer size) {
+            @RequestParam(required = false) Integer size) {
+
+        if (size == null) {
+            size = configuration.getSize();
+        }
 
         Pageable paging = PageRequest.of(page, size);
         return ResponseEntity.ok().body(userService.findAllUsers(paging));

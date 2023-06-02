@@ -6,7 +6,7 @@ spring:
     name: novare-service
   config:
     import:
-    - optional:configserver:http://localhost:8888/
+    - optional:configserver:http://localhost:8888/config-service/
   datasource:
     url: ${DATASOURCE_URL}
     username: ${DATASOURCE_USERNAME}
@@ -19,18 +19,13 @@ spring:
     # properties:
     #   hibernate:
     #     format_sql: true
-    
-    
+  
 management:
   endpoints:
     web:
       exposure:
         include:
           - '*'
-
-novare-service:
-  page: 0
-  size: 4
 
 
 
