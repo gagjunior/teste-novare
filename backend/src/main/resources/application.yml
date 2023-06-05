@@ -1,6 +1,11 @@
 spring:
+  application:
+    name: novare-service
   config:
     import: optional:configserver:http://localhost:8888
+  cloud:
+    config:
+      profile: prod
   datasource:
     url: ${DATASOURCE_URL}
     username: ${DATASOURCE_USERNAME}
