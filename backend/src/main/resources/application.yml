@@ -1,12 +1,6 @@
-server:
-  port: 8080
-
-spring: 
-  application:
-    name: novare-service
+spring:
   config:
-    import:
-    - optional:configserver:http://localhost:8888/config-service/
+    import: optional:configserver:http://localhost:8888
   datasource:
     url: ${DATASOURCE_URL}
     username: ${DATASOURCE_USERNAME}
